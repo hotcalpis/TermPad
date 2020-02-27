@@ -1,2 +1,17 @@
-%h1 Posts#show
-%p Find me in app/views/posts/show.html.haml
+- set_meta_tags site: @post.theme, separator: '-'
+
+.container.mt-2
+  %h2.mt-4.mb-4
+    = @post.theme
+
+  .mt-4.mb-4.overflow-hidden
+    .float-left
+      = link_to @post.user.name, user_path(@post.user)
+      %p
+        = l(@post.created_at, format: :long)
+
+  .block
+    = @post.description
+
+  - if current_user == @post.user
+    = button_to "編集", edit_post_path(@post), method: :get, class: 'btn btn-primary float-right'

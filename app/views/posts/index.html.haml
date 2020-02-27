@@ -1,5 +1,12 @@
-%h1 Posts#index
-%p Find me in app/views/posts/index.html.haml
+.container
+  %h6.text-center.mt-2.mb-3
+    プログラミングの際に見かける「よく分からない単語」を自分なりの言葉で解説してみましょう！
+    %br
+    投稿された内容はあなたのユーザーページにて辞書化され、振り返りや共有に使うことが出来ます
 
-.text-center
-  = button_to("テストユーザーでログイン", testlogin_users_path, class: 'btn btn-primary')
+  .text-center.mb-5
+    - unless user_signed_in?
+      = button_to("テストユーザーでログイン", testlogin_users_path, class: 'btn btn-primary')
+
+  .mb-3.list-group
+    = render partial: 'shared/post', collection: @posts
