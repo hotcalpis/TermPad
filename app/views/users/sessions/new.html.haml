@@ -1,4 +1,7 @@
-%h2 Log in
+%h2 Log inddd
+.text-center
+  = button_to("テストユーザーでログイン", testlogin_users_path, class: 'btn btn-primary')
+
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .field
     = f.label :email
