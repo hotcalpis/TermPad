@@ -1,0 +1,1 @@
+$("#increment-btn").html("<%= j(render partial: 'shared/post', locals: { user: @user, page: params[:page].to_i + 1 }) %>");

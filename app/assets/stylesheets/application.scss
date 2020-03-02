@@ -18,3 +18,35 @@
  body {
    background-color: #f8f7f7;
  }
+
+ .dictionary-wrapper {
+   margin: 0 auto;
+   border: solid red;
+   height: 560px;
+ }
+
+ .dictionary-btn {
+   height: 60px;
+   width: 60px;
+   border: solid red;
+   border-radius: 100%;
+   margin: 250px auto;
+ }
+
+.dictionary-scrollbar {
+  border: solid red;
+  height: 20px;
+  margin-top: 20px;
+}
+
+.dictionary-menu {
+  border: solid red;
+  height: 50px;
+  width: 50px;
+  margin-bottom: -50px;
+}
+
+
+.dictionary-content {
+  height: 140px;
+}
