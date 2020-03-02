@@ -1,1 +1,22 @@
-%p Hello! #{@user.name}!!!!
+%p.text-center Hello! #{@user.name}!!!!
+
+.row
+  .col-md-1
+    = link_to user_path(@user), method: :get, id: 'decrement-btn', remote: true do
+      .dictionary-btn
+
+  .col-md-10
+    .row.dictionary-wrapper
+      .col-md-6
+        = render partial: 'shared/post', collection: @posts[0..3]
+      .col-md-6
+        = render partial: 'shared/post', collection: @posts[4..7]
+
+  .col-md-1
+    .dictionary-menu
+    = link_to user_path(@user), method: :get, id: 'increment-btn', remote: true do
+      .dictionary-btn
+
+.row
+  .col-md-10.offset-md-1
+    .dictionary-scrollbar

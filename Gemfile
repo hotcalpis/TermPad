@@ -32,6 +32,7 @@ gem 'annotate'
 gem 'bootstrap'
 gem 'devise'
 gem 'haml-rails'
+gem 'kaminari'
 gem 'meta-tags'
 gem 'rubocop', require: false
 
