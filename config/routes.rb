@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users, only: [:show] do
-    post :testlogin, on: :collection
+    get :increment
+    get :decrement
+    collection do
+      post :testlogin
+    end
   end
 
   resources :posts
@@ -30,6 +34,8 @@ end
 #                           PUT    /users(.:format)                                                                         devise/registrations#update
 #                           DELETE /users(.:format)                                                                         devise/registrations#destroy
 #                           POST   /users(.:format)                                                                         devise/registrations#create
+#            user_increment GET    /users/:user_id/increment(.:format)                                                      users#increment
+#            user_decrement GET    /users/:user_id/decrement(.:format)                                                      users#decrement
 #           testlogin_users POST   /users/testlogin(.:format)                                                               users#testlogin
 #                      user GET    /users/:id(.:format)                                                                     users#show
 #                     posts GET    /posts(.:format)                                                                         posts#index
