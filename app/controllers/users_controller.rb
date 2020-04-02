@@ -10,10 +10,15 @@ class UsersController < ApplicationController
         cookies[:page_number] = 1
       }
       format.js   {
-        @page_number = (params[:in_de] == 'increment'
-          ? (cookies[:page_number] = cookies[:page_number].to_i + 1)
-          : (cookies[:page_number] = cookies[:page_number].to_i - 1))
+        max_page = (@user.posts.count + 7) / 8
 
+        if (params[:in_de] == 'increment')
+          cookies[:page_number] = [max_page, cookies[:page_number].to_i + 1].min
+        else
+          cookies[:page_number] = [1,        cookies[:page_number].to_i - 1].max
+        end
+
+        @page_number = cookies[:page_number]
         @posts = @user.posts.page(@page_number).per(8)
       }
     end
