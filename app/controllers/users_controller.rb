@@ -3,11 +3,22 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    # respond_to do |format|
-    #   format.html { @posts = @user.posts.page(1).per(8) }
-    #   format.js   { @posts = @user.posts.page(2).per(8) }
-    # end
-    @posts = @user.posts.page(1).per(8)
+    @page_number = 1
+    respond_to do |format|
+      format.html {
+        @posts = @user.posts.page(1).per(8)
+      }
+      format.js   {
+        @page_number = params[:page].to_i
+        if (params[:in_de] == 'increment')
+          @page_number += 1
+          @posts = @user.posts.page(@page_number).per(8)
+        else
+          @page_number -= 1
+          @posts = @user.posts.page(@page_number).per(8)
+        end
+      }
+    end
   end
 
   def testlogin
@@ -18,16 +29,6 @@ class UsersController < ApplicationController
     sign_in user
     flash[:success] = 'テストユーザーでログインしました。'
     redirect_to root_url
-  end
-
-  def increment
-    user = User.find(params[:id])
-    @posts = user.posts.page(2).per(8)
-  end
-
-  def decrement
-    user = User.find(params[:id])
-    @posts = user.posts.page(2).per(8)
   end
 
 end
