@@ -1,8 +1,8 @@
-%p.text-center Hello! #{@user.name}!!!!
+%p.text-center#hello Hello! #{@user.name}!!!!
 
 .row
   .col-md-1
-    = link_to user_path(@user, in_de: 'decrement', page: @page_number), remote: true do
+    = link_to user_path(@user, in_de: 'decrement'), remote: true do
       .dictionary-btn
 
   .col-md-10
@@ -14,7 +14,7 @@
 
   .col-md-1
     .dictionary-menu
-    = link_to user_path(@user, in_de: 'increment', page: @page_number), remote: true do
+    = link_to user_path(@user, in_de: 'increment'), remote: true do
       .dictionary-btn
 
 .row
