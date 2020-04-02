@@ -7,13 +7,13 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html {
         @posts = @user.posts.page(1).per(8)
+        cookies[:page_number] = 1
       }
       format.js   {
-        if (params[:in_de] == 'increment')
-          @page_number = cookies[:page_number].to_i + 1 || 2
-        else
-          @page_number = cookies[:page_number].to_i - 1 || 1
-        end
+        @page_number = (params[:in_de] == 'increment'
+          ? (cookies[:page_number] = cookies[:page_number].to_i + 1)
+          : (cookies[:page_number] = cookies[:page_number].to_i - 1))
+
         @posts = @user.posts.page(@page_number).per(8)
       }
     end
