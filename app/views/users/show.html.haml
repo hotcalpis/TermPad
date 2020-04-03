@@ -1,9 +1,11 @@
-%p.text-center#hello Hello! #{@user.name}!!!!
+%p.text-center Hello! #{@user.name}!!!!
+%p.text-center#page_number
 
 .row
   .col-md-1
     = link_to user_path(@user, in_de: 'decrement'), remote: true do
       .dictionary-btn
+        = icon('fas', 'chevron-left fa-3x')
 
   .col-md-10
     .row.dictionary-wrapper
@@ -16,6 +18,7 @@
     .dictionary-menu
     = link_to user_path(@user, in_de: 'increment'), remote: true do
       .dictionary-btn
+        = icon('fas', 'chevron-right fa-3x')
 
 .row
   .col-md-10.offset-md-1
