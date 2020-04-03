@@ -31,6 +31,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'annotate'
 gem 'bootstrap'
 gem 'devise'
+gem 'faker'
+gem 'font-awesome-sass'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'kaminari'
