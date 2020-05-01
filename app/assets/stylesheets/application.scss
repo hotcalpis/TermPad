@@ -49,7 +49,22 @@
   margin-bottom: -50px;
 }
 
-
 .dictionary-content {
+  position: relative;
+  display: flex;
+  color: black;
+  border: solid;
+  border-color: red;
+  background-color: white;
   height: 140px;
+}
+
+.between-space {
+  justify-content: space-between;
+}
+
+.right-under {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
