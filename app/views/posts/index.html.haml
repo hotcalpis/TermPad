@@ -8,5 +8,5 @@
     - unless user_signed_in?
       = button_to("テストユーザーでログイン", testlogin_users_path, class: 'btn btn-primary')
 
-  .mb-3.row
+  .mb-3.between-space.row
     = render partial: 'shared/post', collection: @posts

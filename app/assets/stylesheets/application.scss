@@ -55,7 +55,12 @@
   color: black;
   border: solid;
   border-color: red;
+  background-color: white;
   height: 140px;
+}
+
+.between-space {
+  justify-content: space-between;
 }
 
 .right-under {
