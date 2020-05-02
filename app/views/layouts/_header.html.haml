@@ -4,7 +4,6 @@
       = image_tag "navBrandT.svg", width: 36, height: 36
       TermPad
 
-    -# .navbar-right
     %button.navbar-toggler{ type: "button", "data-toggle": "collapse", "data-target": "#navmenu1", "aria-controls": "navmenu1", "aria-expanded": "false", "aria-label": "Toggle navigation" }
       %span.navbar-toggler-icon
 
@@ -17,3 +16,4 @@
         - else
           = link_to("ログイン",   new_user_session_url,      class: "nav-item nav-link")
           = link_to("新規登録",   new_user_registration_url, class: "nav-item nav-link")
+          = button_to("テストユーザーでログイン", testlogin_users_path, class: 'btn btn-primary nav-item nav-link')
