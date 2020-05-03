@@ -1,8 +1,11 @@
 = link_to( post, class: 'col-md-6 dictionary-content pt-4' ) do
   %h4
     = post.theme
-  %h5.right-under
-    .float-left
-      = post.user.name
-    .float-right.text-muted
+  %h6.left-bottom.text-muted.ml-3
+    = post.user.name
+  %h5.right-bottom
+    .float-right.text-muted.mr-2
       %time(datatime="#{post.created_at}")= "#{time_ago_in_words(post.created_at)}前"
+    .float-right.mr-3
+      = image_tag('like_icon_blue.svg', size: '20x20')
+      = post.likes_count

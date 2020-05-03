@@ -21,40 +21,43 @@
    background-color: #f8f7f7;
  }
 
- .dictionary-wrapper {
-   margin: 0 auto;
-   border: solid gray;
-   height: 560px;
+ h1 h2 h3 h4 h5 h6 {
+  font-family: 'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
  }
 
- .dictionary-btn {
-   height: 60px;
-   width: 60px;
-  //  border: solid red;
-   text-align: center;
-   border-radius: 100%;
-   margin: 250px auto;
- }
+//  .dictionary-wrapper {
+//    margin: 0 auto;
+//    border: solid gray;
+//    height: 560px;
+//  }
 
-.dictionary-scrollbar {
-  border: solid red;
-  height: 20px;
-  margin-top: 20px;
-}
+//  .dictionary-btn {
+//    height: 60px;
+//    width: 60px;
+//   //  border: solid red;
+//    text-align: center;
+//    border-radius: 100%;
+//    margin: 250px auto;
+//  }
 
-.dictionary-menu {
-  border: solid red;
-  height: 50px;
-  width: 50px;
-  margin-bottom: -50px;
-}
+// .dictionary-scrollbar {
+//   border: solid red;
+//   height: 20px;
+//   margin-top: 20px;
+// }
+
+// .dictionary-menu {
+//   border: solid red;
+//   height: 50px;
+//   width: 50px;
+//   margin-bottom: -50px;
+// }
 
 .dictionary-content {
   position: relative;
   display: flex;
   color: black;
   border: solid;
-  border-color: red;
   background-color: white;
   height: 140px;
 }
@@ -63,8 +66,18 @@
   justify-content: space-between;
 }
 
-.right-under {
+.right-bottom {
   position: absolute;
   bottom: 0;
   right: 0;
+}
+
+.left-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.action-list {
+  margin: 50px 0 -90px 35px;
 }

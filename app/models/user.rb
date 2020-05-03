@@ -7,6 +7,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posts, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :fav_posts, through: :favorites, source: :post
 
   validates :name,    presence: true, length: { maximum: 50 }
   validates :profile, length: { maximum: 400 }
