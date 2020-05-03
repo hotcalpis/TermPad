@@ -1,6 +1,9 @@
 - set_meta_tags site: @post.theme, separator: '-'
 
-.container.mt-2
+%h5.action-list
+  = render 'likes/like', post: @post
+
+.container
   %h2.mt-4.mb-4
     = @post.theme
 

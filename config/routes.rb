@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'likes/create'
+  get 'likes/destroy'
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users, only: [:show] do
@@ -9,7 +11,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :posts
+  resources :posts do
+    resources :likes, only: %i[create destroy]
+  end
 
   root 'posts#index'
 end
@@ -17,6 +21,8 @@ end
 # == Route Map
 #
 #                    Prefix Verb   URI Pattern                                                                              Controller#Action
+#              likes_create GET    /likes/create(.:format)                                                                  likes#create
+#             likes_destroy GET    /likes/destroy(.:format)                                                                 likes#destroy
 #          new_user_session GET    /users/sign_in(.:format)                                                                 devise/sessions#new
 #              user_session POST   /users/sign_in(.:format)                                                                 devise/sessions#create
 #      destroy_user_session DELETE /users/sign_out(.:format)                                                                devise/sessions#destroy
@@ -32,10 +38,10 @@ end
 #                           PUT    /users(.:format)                                                                         devise/registrations#update
 #                           DELETE /users(.:format)                                                                         devise/registrations#destroy
 #                           POST   /users(.:format)                                                                         devise/registrations#create
-#            user_increment GET    /users/:user_id/increment(.:format)                                                      users#increment
-#            user_decrement GET    /users/:user_id/decrement(.:format)                                                      users#decrement
 #           testlogin_users POST   /users/testlogin(.:format)                                                               users#testlogin
 #                      user GET    /users/:id(.:format)                                                                     users#show
+#                post_likes POST   /posts/:post_id/likes(.:format)                                                          likes#create
+#                 post_like DELETE /posts/:post_id/likes/:id(.:format)                                                      likes#destroy
 #                     posts GET    /posts(.:format)                                                                         posts#index
 #                           POST   /posts(.:format)                                                                         posts#create
 #                  new_post GET    /posts/new(.:format)                                                                     posts#new

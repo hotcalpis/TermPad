@@ -66,8 +66,18 @@
   justify-content: space-between;
 }
 
-.right-under {
+.right-bottom {
   position: absolute;
   bottom: 0;
   right: 0;
+}
+
+.left-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.action-list {
+  margin: 50px 0 -90px 35px;
 }
