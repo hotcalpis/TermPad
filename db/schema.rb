@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 20_200_504_073_303) do
   create_table 'users', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
     t.string 'name', default: '', null: false
     t.text 'profile'
+    t.integer 'following_count', default: 0
+    t.integer 'followers_count', default: 0
     t.string 'email', default: '', null: false
     t.string 'encrypted_password', default: '', null: false
     t.string 'reset_password_token'

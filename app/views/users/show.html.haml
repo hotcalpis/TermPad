@@ -1,5 +1,7 @@
-%p.text-center #{@user.name}さんのページ
-.text-center
+%h5.text-center #{@user.name}さんのページ
+%h5.text-center.mt-3
+  = render partial: 'relationships/follow_count', locals: { user: @user }
+%h6.text-center
   = render partial: 'relationships/follow', locals: { user: @user }
 
 -# %p.text-center#page_number

@@ -7,6 +7,8 @@
 #  id                     :bigint           not null, primary key
 #  email                  :string(255)      default(""), not null
 #  encrypted_password     :string(255)      default(""), not null
+#  followers_count        :integer          default(0)
+#  following_count        :integer          default(0)
 #  name                   :string(255)      default(""), not null
 #  profile                :text(65535)
 #  remember_created_at    :datetime
