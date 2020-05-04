@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :relationships, only: %i[create destroy]
+
   resources :posts do
     resources :likes, only: %i[create destroy]
   end
@@ -40,6 +42,8 @@ end
 #                           POST   /users(.:format)                                                                         devise/registrations#create
 #           testlogin_users POST   /users/testlogin(.:format)                                                               users#testlogin
 #                      user GET    /users/:id(.:format)                                                                     users#show
+#             relationships POST   /relationships(.:format)                                                                 relationships#create
+#              relationship DELETE /relationships/:id(.:format)                                                             relationships#destroy
 #                post_likes POST   /posts/:post_id/likes(.:format)                                                          likes#create
 #                 post_like DELETE /posts/:post_id/likes/:id(.:format)                                                      likes#destroy
 #                     posts GET    /posts(.:format)                                                                         posts#index
