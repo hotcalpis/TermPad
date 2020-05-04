@@ -9,11 +9,19 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :fav_posts, through: :favorites, source: :post
+  has_many :relationships
+  has_many :followings, through: :relationships, source: :follow
+  has_many :reverse_of_relationships, class_name: :Relationship, foreign_key: 'follow_id'
+  has_many :followers, through: :reverse_of_relationships, source: :user
 
   validates :name,    presence: true, length: { maximum: 50 }
   validates :profile, length: { maximum: 400 }
   validates :email,   presence: true, length: { maximum: 255 },
                       uniqueness: { case_sensitive: false }
+
+  def followed_by?(other_user)
+    other_user.relationships.find_by(follow_id: id)
+  end
 end
 
 # == Schema Information
@@ -23,6 +31,8 @@ end
 #  id                     :bigint           not null, primary key
 #  email                  :string(255)      default(""), not null
 #  encrypted_password     :string(255)      default(""), not null
+#  followers_count        :integer          default(0)
+#  following_count        :integer          default(0)
 #  name                   :string(255)      default(""), not null
 #  profile                :text(65535)
 #  remember_created_at    :datetime
