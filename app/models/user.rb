@@ -19,19 +19,8 @@ class User < ApplicationRecord
   validates :email,   presence: true, length: { maximum: 255 },
                       uniqueness: { case_sensitive: false }
 
-  def follow(other_user)
-    unless self == other_user
-      relationships.find_or_create_by(follow_id: other_user.id)
-    end
-  end
-
-  def unfollow(other_user)
-    relationship = relationships.find_by(follow_id: other_user.id)
-    relationship&.destroy
-  end
-
-  def following?(other_user)
-    followings.include?(other_user)
+  def followed_by?(other_user)
+    other_user.relationships.find_by(follow_id: id)
   end
 end
 
